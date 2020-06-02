@@ -19,9 +19,9 @@ Rails.application.routes.draw do
 
   #member
   devise_for :members, controllers: {
-    sessions:      'mambers/sessions',
-    passwords:     'mambers/passwords',
-    registrations: 'mambers/registrations'
+    sessions:      'members/sessions',
+    passwords:     'members/passwords',
+    registrations: 'members/registrations'
   }
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 
