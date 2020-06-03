@@ -3,9 +3,11 @@ class Member::MembersController < ApplicationController
 	end
 
 	def show
+		@member = Member.find(params[:id])
 	end
 
 	def edit
+		@member = Member.find(params[:id])
 	end
 
 	def update

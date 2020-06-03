@@ -1,0 +1,24 @@
+<h2>再送先登録/一覧</h2>
+
+<%= form_for(@new_destination) do |f| %>
+  <!--エラーメッセージ-->
+
+  <div class="field">
+    <%= f.label :postal_code, "郵便番号(ハイフンなし)" %>
+    <%= f.text_field :postal_code, autofocus: true, autocomplete: "postal_code" %>
+  </div>
+
+  <div class="field">
+    <%= f.label :address, "住所" %>
+    <%= f.text_field :address, autofocus: true, autocomplete: "address" %>
+  </div>
+
+  <div class="field">
+    <%= f.label :receiver, "宛名" %>
+    <%= f.text_field :receiver, autofocus: true, autocomplete: "receiver" %>
+  </div>
+
+  <div class="actions">
+    <%= f.submit "登録する" %>
+  </div>
+<% end %>
