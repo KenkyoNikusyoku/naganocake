@@ -10,7 +10,11 @@ Rails.application.routes.draw do
 
   #admin
   namespace :admin do
-    resources :members,only: [:index, :show, :edit, :update, :top]
+    resources :members,only: [:index, :show, :edit, :update] do
+      collection do
+        get :top
+      end
+    end
     resources :products,only: [:index, :show, :new, :create, :edit,:update]
     resources :genres,only: [:index, :create, :edit, :update]
     resources :orders,only: [:index, :show, :update]
@@ -27,10 +31,27 @@ Rails.application.routes.draw do
 
   #member
   scope module: :member do
-    resources :members, only: [:top, :show, :edit, :update, :quit, :hide]
-  resources :destinations, only: [:index, :create, :show, :edit, :update, :destroy]
-  resources :products, only: [:index, :show]
-  resources :cart_products, only: [:index, :update, :create, :destroy, :all_destroy]
-  resources :orders, only: [:new, :confirm, :create, :index, :show, :thanks]
+    resources :members, only: [:show, :edit, :update] do
+      member do
+        get :quit
+        delete :hide
+      end
+      collection do
+        get :top
+      end
+    end
+    resources :destinations, only: [:index, :create, :show, :edit, :update, :destroy]
+    resources :products, only: [:index, :show]
+    resources :cart_products, only: [:index, :update, :create, :destroy] do
+      collection do
+        delete :all_destroy
+      end
+    end
+    resources :orders, only: [:new, :create, :index, :show] do
+      collection do
+        get :confirm
+        get :thanks
+      end
+    end
   end
 end
