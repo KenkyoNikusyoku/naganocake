@@ -1,0 +1,17 @@
+<header class="navbar navbar-fixed-top navbar-inverse">
+  <div class="container">
+    <nav class="nav navbar-nav navbar-left">
+      <span class="header_title">NaganoCake</span>
+    </nav>
+    <nav>
+      <ul class="nav navbar-nav navbar-right">
+        <% if member_signed_in? %>
+        　<li><%= link_to ' Logout', destroy_member_session_path, method: :delete %></li>
+        <% else %>
+          <li><%= link_to ' sign up', new_member_registration_path %></li>
+          <li><%= link_to ' Login', new_member_session_path %></li>
+        <% end %>
+      </ul>
+    </nav>
+  </div>
+</header>
