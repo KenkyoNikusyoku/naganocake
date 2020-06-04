@@ -5,14 +5,15 @@ class Admin::GenresController < ApplicationController
 
     
     def index
-        @genres = Genres.paginate(page:params[:page])
+        @genres = Genre.all
+        #Genres.paginate(page:params[:page])
         @genre = Genre.new
     end
 
     def create
         @genre = Genre.new(genre_params)
         @genre.save
-        redirect_to
+        redirect_to admin_genres_path
     end
 
     def edit
@@ -20,7 +21,7 @@ class Admin::GenresController < ApplicationController
 
     def update
         @genre.update
-        redirect_to
+        redirect_to admin_genres_path
     end
 
     private
