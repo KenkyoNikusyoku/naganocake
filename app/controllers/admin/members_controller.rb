@@ -1,4 +1,6 @@
 class Admin::MembersController < ApplicationController
+  before_action :authenticate_admin!
+
   def top
     @orders = Order.where(created_at: Time.zone.now.all_day)
   end
@@ -12,7 +14,7 @@ class Admin::MembersController < ApplicationController
   end
 
   def edit
-    @member = User.find(params[:id])
+    @member = Member.find(params[:id])
   end
 
   def update

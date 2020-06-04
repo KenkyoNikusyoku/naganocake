@@ -1,1 +1,24 @@
-<h1>admin::members#index</h1>
+<h1>admin::members#show</h1>
+<h1>会員一覧</h1>
+<table class="table">
+        <tr>
+            <th>会員ID</th>
+            <th>氏名</th>
+            <th>メールアドレス</th>
+            <th>ステータス</th>
+       <tr>
+    <% @members.each do |member| %>
+        <tr>
+            <td><%= member.id%></td>
+            <td><%= link_to member.last_name+member.first_name, admin_member_path(member.id) %></td>
+            <td><%= member.email%></td>
+            <td>
+            <% if member.is_deleted == false %>
+				<%= "有効" %>
+			<% else %>
+				<%= "退会済み" %>
+			<% end %>
+            </td>
+        <tr>
+    <% end %>
+</table>
