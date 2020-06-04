@@ -1,6 +1,8 @@
 <h2>マイページ</h2>
 
 <h3>登録情報</h3>
+<%= link_to "編集する", edit_member_path(@member), class: "btn btn-default" %>
+<%= link_to "パスワードを変更する", destinations_path, class: "btn btn-default" %>
 
 <table>
 	<tr>
@@ -30,9 +32,7 @@
 </table>
 
 <h3>配送先</h3>
-<p>一覧を見る</p>
-<!-- link_to destinations_path -->
+<%= link_to "一覧を見る", destinations_path, class: "btn btn-default" %>
 
 <h3>注文履歴</h3>
-<p>一覧を見る</p>
-<!--link_to orders_path -->
+<%= link_to "一覧を見る", orders_path, class: "btn btn-default" %>
