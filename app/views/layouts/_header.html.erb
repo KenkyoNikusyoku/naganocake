@@ -1,0 +1,28 @@
+<header class="navbar navbar-fixed-top navbar-inverse">
+  <div class="container">
+    <nav class="nav navbar-nav navbar-left">
+      <span class="header_title">NaganoCake</span>
+    </nav>
+    <nav>
+      <ul class="nav navbar-nav navbar-right">
+        <% if admin_signed_in? %>
+          <li><%= link_to "商品一覧", admin_products_path %></li>
+          <li><%= link_to "会員一覧", admin_members_path %></li>
+          <li><%= link_to "注文履歴一覧", admin_orders_path %></li>
+          <li><%= link_to "ジャンル一覧", admin_genres_path %></li>
+          <li><%= link_to "ログアウト", destroy_admin_session_path, method: :delete %></li>
+        <% elsif member_signed_in? %>
+        　<li><%= link_to "マイページ", member_path(current_member) %></li>
+          <li><%= link_to "商品一覧", products_path %></li>
+          <li><%= link_to "カート", cart_products_path %></li>
+          <li><%= link_to "ログアウト", destroy_member_session_path, method: :delete %></li>
+        <% else %>
+          <li><%= link_to ' sign up(admin)', new_admin_registration_path %></li>
+          <li><%= link_to ' sign up', new_member_registration_path %></li>
+          <li><%= link_to ' Login(admin)', new_admin_session_path %></li>
+          <li><%= link_to ' Login', new_member_session_path %></li>
+        <% end %>
+      </ul>
+    </nav>
+  </div>
+</header>
