@@ -10,13 +10,11 @@ class Member < ApplicationRecord
   validates :last_name, presence: true, length: {maximum: 10}
   validates :first_name_kana, presence: true, length: {maximum: 10}
   validates :last_name_kana, presence: true, length: {maximum: 10}
-  #telephone
-  validates :telephone, length: {maximum: 15}
-  #postal_code
-  validates :postal_code, presence: true, format: {with: /\A\d{7}\z/}
-  #address
-  validates :address, presence: true, length: {maximum: 100}
 
+  validates :telephone, length: {maximum: 15}
+  validates :postal_code, presence: true, format: {with: /\A\d{7}\z/}
+  validates :address, presence: true, length: {maximum: 100}
+  validates :is_deleted, inclusion: {in: [true, false]}
 
   has_many :orders
   has_many :cart_products, dependent: :destroy
