@@ -1,5 +1,6 @@
 <h1>商品一覧</h1>
 
+<%= link_to '', new_admin_product_path, class: "btn btn-default btn-circle btn-lg glyphicon glyphicon-plus" %>
 <table class="table">
     <tr>
         <th>商品ID</th>
@@ -14,7 +15,7 @@
      <td> <%= product.name %> </td>
      <td> <%= product.price %> </td>
      <td> <%= product.genre.name %> </td>
-     <td></td>
+     <td>  </td>
     
      </tr>
     <% end %>

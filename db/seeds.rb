@@ -10,3 +10,9 @@ Admin.create!(
    email: 'nagano@nagano.com',
    password: 'nagano123',
 )
+
+# Member.create!(
+#     name: 'nagano',
+#     email: 'nagano1@nagano.com',
+#     password: 'nagano321',
+# )
