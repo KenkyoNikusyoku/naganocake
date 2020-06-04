@@ -1,4 +1,6 @@
 class Admin::MembersController < ApplicationController
+  before_action :authenticate_admin!
+
   def top
     @orders = Order.where(created_at: Time.zone.now.all_day)
   end
@@ -12,16 +14,13 @@ class Admin::MembersController < ApplicationController
   end
 
   def edit
-    @member = User.find(params[:id])
+    @member = Member.find(params[:id])
   end
 
   def update
     @member = Member.find(params[:id])
-    if @member.update(member_params)
-      redirect_to admin_member_path(@member.id)
-    else
-      render action: :edit
-    end
+    @member.update(member_params)
+    redirect_to admin_member_path(@member.id)
   end
 
   private
