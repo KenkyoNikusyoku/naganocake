@@ -2,7 +2,7 @@ class Admin::ProductsController < ApplicationController
     before_action :authenticate_admin!
     #show,edit,updateの内容重複の為
     before_action :set_product, only: [:show, :edit, :update]
-    #before_action :set_genre, only: [:edit, :update, :new, :index, :create,]
+    before_action :set_genres, only: [:edit, :update, :new, :index, :create,]
 
 
     def index
@@ -43,5 +43,8 @@ class Admin::ProductsController < ApplicationController
     end
 
     #ジャンルの表記どうする？
+    def set_genres
+        @genres = Genre.where(is_valid: true)
+    end
 
 end

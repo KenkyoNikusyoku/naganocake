@@ -20,14 +20,14 @@ class Admin::GenresController < ApplicationController
     end
 
     def update
-        @genre.update
+        @genre.update(genre_params)
         redirect_to admin_genres_path
     end
 
     private
 
     def genre_params
-        params.require(genre).permit(:name, :is_valid)
+        params.require(:genre).permit(:name, :is_valid)
     end
 
     def set_genre
