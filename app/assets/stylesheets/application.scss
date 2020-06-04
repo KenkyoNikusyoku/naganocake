@@ -17,3 +17,7 @@
  /*BootstrapをSCSSに読み込ませる*/
  @import "bootstrap-sprockets";
  @import "bootstrap";
+
+body{
+	padding-top:50px;
+}
