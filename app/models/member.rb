@@ -19,4 +19,5 @@ class Member < ApplicationRecord
   has_many :orders
   has_many :cart_products, dependent: :destroy
   has_many :destinations, dependent: :destroy
+
 end
