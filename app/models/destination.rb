@@ -8,4 +8,7 @@ class Destination < ApplicationRecord
 	#receiver
 	validates :receiver, presence: true, length: {maximum: 20}
 
+    def view_destination
+        "#{self.postal_code} #{self.address} #{self.receiver}"
+    end
 end

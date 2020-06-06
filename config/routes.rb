@@ -19,9 +19,14 @@ Rails.application.routes.draw do
     end
     resources :products,only: [:index, :show, :new, :create, :edit,:update]
     resources :genres,only: [:index, :create, :edit, :update]
-    resources :orders,only: [:index, :show, :update]
+    resources :orders,only: [:index, :show, :update] do
+      member do
+        patch :order_update
+      end
+    end
   end
 
+  patch '/admin/orders/:order_product_id', to: 'admin/orders#work_update'
 
   #member
   devise_for :members, controllers: {

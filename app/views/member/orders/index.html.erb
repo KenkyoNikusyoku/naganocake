@@ -48,7 +48,7 @@
 					            <% end %>
 					        </td>
 							<td>
-								<%= link_to "表示する", admin_order_path(order.id), class: "btn btn-primary btn-block" %>
+								<%= link_to "表示する", order_path(order.id), class: "btn btn-primary btn-block" %>
 							</td>
 						</tr>
 					<% end %>
@@ -57,9 +57,10 @@
 		</div>
 	</div>
 
+	<%# 念の為ページネーションを追加しました。 %>
 	<div class="row">
     <div class="col-xs-8 col-xs-offset-2">
-      ページネーションあとで
+      あとでやるページネーション
     </div>
   </div>
 
