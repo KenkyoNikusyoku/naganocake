@@ -5,5 +5,4 @@
 退会する場合は、「退会する」をクリックしてください。<br></h3>
 
 <%= link_to "退会しない", member_path(@member) %>
-<%= link_to "退会する", member_path(@member) %>
-<!-- 退会処理　設定してない -->
+<%= link_to "退会する", hide_member_path(@member), method: :delete %>
