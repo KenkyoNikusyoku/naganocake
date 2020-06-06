@@ -1,0 +1,36 @@
+<h1>商品編集</h1>
+
+<%= form_for @product, url: admin_product_path, method: :patch, class: "form-control" do |f| %>
+
+ 
+   
+    
+    <table class="table">
+        <tr>
+        <td> <%= f.attachment_field :image, class: "image" %> </td>
+        <td> <%= attachment_image_tag(@product, :image, size: "300x300") %> </td>
+        </tr>
+        <tr>
+        <th>title</th>
+        <td> <%= f.text_field :name, class:"form-control" %> </td>
+     
+        <th>商品説明</th>
+            <td> <%= f.text_area :introduction, class:"form-control" %> </td>
+            
+        <th>商品ジャンル</th>
+            <td> <%= f.collection_select :genre_id, Genre.all, :id, :name %> </td>
+     
+        <th>税抜価格</th>
+            <td> <%= f.text_field :price, class:"form-control" %>円 </td>
+        
+        <th>販売ステータス</th>
+           <td> 有効 <%= f.radio_button :is_valid, true %>  </td>
+           <td> 無効 <%= f.radio_button :is_valid, false %>  </td>
+        <td> <%= f.submit "変更を保存する", class:"btn btn-lg btn-block btn-base-1 mt-20" %> </td>
+        </tr>
+    </table>
+    
+       
+    
+      
+ <% end %>
