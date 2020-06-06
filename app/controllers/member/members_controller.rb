@@ -1,5 +1,7 @@
 class Member::MembersController < ApplicationController
 	def top
+    	@products = Product.joins(:genre).where(genres: { is_valid: true }).shuffle.first(4)
+    	@genres = Genre.where(is_valid: true)
 	end
 
 	def show
