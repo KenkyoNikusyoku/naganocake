@@ -4,7 +4,7 @@
 <%= link_to "編集する", edit_member_path(@member), class: "btn btn-default" %>
 <%= link_to "パスワードを変更する", destinations_path, class: "btn btn-default" %>
 
-<table>
+<table class="table">
 	<tr>
 		<th>氏名</th>
 		<td><%= @member.last_name %> <%= @member.first_name %></td>

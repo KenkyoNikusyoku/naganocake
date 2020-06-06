@@ -42,7 +42,7 @@ Rails.application.routes.draw do
         get :top
       end
     end
-    resources :destinations, only: [:index, :create, :show, :edit, :update, :destroy]
+    resources :destinations, only: [:index, :create, :edit, :update, :destroy]
     resources :products, only: [:index, :show]
     resources :cart_products, only: [:index, :update, :create, :destroy] do
       collection do

@@ -1,23 +1,41 @@
 <h1>商品一覧</h1>
-
-<%= link_to '', new_admin_product_path, class: "btn btn-default btn-circle btn-lg glyphicon glyphicon-plus" %>
+<div class="container">
+<div class="row">
+<div class="col-xs-2">
+</div>
+<div class="col-xs-9">
+<div class="text-right">
+　<%= link_to '', new_admin_product_path, class: "btn btn-default btn-circle btn-lg glyphicon glyphicon-plus-sign" %>
+</div>
 <table class="table">
+    <tbody>
     <tr>
         <th>商品ID</th>
         <th>商品名</th>
         <th>税抜価格</th>
         <th>ジャンル</th>
         <th>ステータス</th>
+        <th></th>
     </tr>
     <% @products.each do |product| %>
      <tr>
      <td> <%= product.id %> </td>
-     <td> <%= product.name %> </td>
-     <td> <%= product.price %> </td>
+     <td> <%= link_to admin_product_path(product), class: "btn-link" do %>
+        <%= product.name %> 
+    <% end %>
+    </td>
+     <td> <%= product.price %>円 </td>
      <td> <%= product.genre.name %> </td>
-     <td>  </td>
-    
+     <% if product.is_valid == true %>
+     <td> 販売中 </td>
+     <% else %>
+     <td> 販売停止中 </td>
+     <% end %>
      </tr>
     <% end %>
-    
+    </tbody>
 </table>
+
+</div>
+<div class="col-xs-2">
+</div>

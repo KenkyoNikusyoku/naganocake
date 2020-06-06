@@ -9,9 +9,14 @@ class Members::SessionsController < Devise::SessionsController
   # end
 
   # POST /resource/sign_in
-  # def create
-  #   super
-  # end
+  def create
+    member = Member.find_by(email: sign_in_params[:email])
+    if member.is_deleted == true
+      redirect_to new_member_session_path
+    else
+      super
+    end
+  end
 
   # DELETE /resource/sign_out
   # def destroy

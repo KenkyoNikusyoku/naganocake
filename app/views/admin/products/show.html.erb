@@ -1,0 +1,20 @@
+<div class="container">
+    <div class="row">
+        <div class="col-xs-3">
+        </div>
+        <div class="col-xs-3">
+        <p> <%= attachment_image_tag(@product, :image, size: "300x220") %> </p>
+        <p> <%= @product.name %> </p>
+        <p> <%= @product.introduction %> </p>
+        <p> <%= @product.genre.name %> </p>
+        <p> <%= @product.price %> </p>
+        <p> <%= @product.price %> </p>
+        <% if @product.is_valid == true %>
+          <p>  販売中 </p>
+        <% else %>
+           <p> 販売停止中 </p>
+        <% end %>
+       <p> <%= link_to "編集する", edit_admin_product_path(@product), class: "btn btn-primary btn-sm" %> </p>
+        </div>
+    </div>
+</div>
