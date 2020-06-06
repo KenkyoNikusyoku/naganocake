@@ -1,5 +1,7 @@
 <h1>商品新規登録</h1>
 
+<%= render 'layouts/error.message', model: @product %>
+
 <%= form_for @product, url: admin_products_path, method: :post, class: "form-control" do |f| %>
  
    <%= f.attachment_field :image, class: "image" %>
