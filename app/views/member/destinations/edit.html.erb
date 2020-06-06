@@ -1,7 +1,8 @@
 <h2>配送先編集</h2>
 
+<%= render 'layouts/error.message', model: @destination %>
+
 <%= form_for(@destination) do |f| %>
-  <!--エラーメッセージ-->
 
   <table class="table">
     <tr>

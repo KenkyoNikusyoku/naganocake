@@ -1,5 +1,7 @@
 <h2>登録情報編集</h2>
 
+<%= render 'layouts/error.message', model: @member %>
+
 <%= form_for(@member) do |f| %>
   <!--エラーメッセージ-->
 

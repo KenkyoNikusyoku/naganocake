@@ -1,7 +1,9 @@
 <h2>配送先登録/一覧</h2>
 
+<%= render 'layouts/error.message', model: @new_destination %>
+
 <%= form_for(@new_destination) do |f| %>
-  <!--エラーメッセージ-->
+
 
   <table class="table">
     <tr>
