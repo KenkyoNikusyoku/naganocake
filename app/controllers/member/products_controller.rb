@@ -2,8 +2,14 @@ class Member::ProductsController < ApplicationController
 
 
 	def index
-        @products = Product.all
-        @genres = Genre.all
+        @products = Product.joins(:genre).where(genres: { is_valid: true })
+        @genres = Genre.where(is_valid: true)
+        @quantity = Product.count
+        # if
+        #    @users = .page(params[:page]).per(8)
+        # else
+
+        # end
     end
 
     def show

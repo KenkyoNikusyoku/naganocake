@@ -68,10 +68,13 @@ gem 'devise'
 gem "refile", require: "refile/rails", github: 'manfe/refile'
 gem "refile-mini_magick"
 
-gem 'will_paginate'
+# gem 'will_paginate'
 
-gem 'bootstrap-will_paginate'
+# gem 'bootstrap-will_paginate'
 
 gem 'bootstrap-sass'
 
 gem 'jquery-rails'
+
+gem 'kaminari'
+
