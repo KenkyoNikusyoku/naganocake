@@ -1,0 +1,31 @@
+
+<div class="container">
+<div class="row">
+    <div class="col-xs-3">
+    </div>
+    <div class="col-xs-3">
+    <p> <%= attachment_image_tag(@product, :image, size: "300x300") %></p>
+    <p> <%= @product.name %> </p>
+    <p> <%= @product.introduction %> </p>
+    <p> <%= @product.genre.name %> </p>
+    <p> <%= number_to_currency(@product.price*1.1, :format => "%u%n", :unit => "￥", :precision => 0) %> </p>
+    
+
+
+
+    <%= form_for @cart_product, url: cart_products_path, method: :post, class: "form-control" do |f| %>
+
+   <h4>個数</h4>
+   <p> <%= f.text_field :quantity, class:"form-control" %>個 </p>
+
+   <p> <%= f.submit "カートに追加", class:"btn btn-lg btn-block btn-base-1 mt-20" %> </p>
+<% end %>
+
+
+
+
+
+    <p> </p>
+    </div>
+</div>
+</div>

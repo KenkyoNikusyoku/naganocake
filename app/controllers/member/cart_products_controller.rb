@@ -48,7 +48,8 @@ class Member::CartProductsController < ApplicationController
     private
 
     def cart_product_params
-    	params.require(:cart_product).parmit(:menber_id :product_id)
+        params.require(:cart_product).parmit(:menber_id, :product_id)
+    end
 end
 
 #バリューて何？
