@@ -13,19 +13,17 @@
 
 
 
-    <%= form_for @cart_product, url: cart_products_path, method: :post, class: "form-control" do |f| %>
-
-   <h4>個数</h4>
-   <p> <%= f.text_field :quantity, class:"form-control" %>個 </p>
-
-   <p> <%= f.submit "カートに追加", class:"btn btn-lg btn-block btn-base-1 mt-20" %> </p>
-<% end %>
+    <%= form_for(@cart_product, url: cart_products_path) do |f| %>
+        　<%= f.hidden_field :product_id, value: @product.id %>
+        　<%= f.number_field :quantity, placeholder: "個数選択",class: 'btn btn-default',min: 1 %>
+        　<%= f.submit 'カートにいれる',class: 'btn btn-primary' %>
+        <% end %>
 
 
 
 
 
-    <p> </p>
+
     </div>
 </div>
 </div>
