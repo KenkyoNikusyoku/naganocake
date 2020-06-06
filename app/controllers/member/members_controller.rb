@@ -24,6 +24,12 @@ class Member::MembersController < ApplicationController
 	end
 
 	def hide
+		member = current_member
+	    member.update(is_deleted: true)
+	    #update後にログアウトしたい。
+	    sign_out member
+	    redirect_to new_member_session_path
+	    #リダイレクト先：トップページに変更する
 	end
 
 	private
