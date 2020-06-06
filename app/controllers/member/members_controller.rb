@@ -13,7 +13,7 @@ class Member::MembersController < ApplicationController
 	def update
 		@member = Member.find(params[:id])
 		if @member.update(member_params)
-			redirect_to member_path(@member)
+			redirect_to member_path(@member), notice: "You have updated your profile successfully."
 		else
 			render :edit
 		end
@@ -28,7 +28,7 @@ class Member::MembersController < ApplicationController
 	    member.update(is_deleted: true)
 	    #update後にログアウトしたい。
 	    sign_out member
-	    redirect_to new_member_session_path
+	    redirect_to new_member_session_path, notice: "You have deleted your account successfully."
 	    #リダイレクト先：トップページに変更する
 	end
 
