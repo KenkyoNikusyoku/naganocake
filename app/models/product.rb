@@ -2,8 +2,8 @@ class Product < ApplicationRecord
 	belongs_to :genre
 	has_many :cart_products, dependent: :destroy
 	has_many :order_products
-
-	attacment :image
+    #attachment スペルミス修正　のすけ
+	attachment :image
     #destroy:　false　必要？
 
     validates :name, presence: true
