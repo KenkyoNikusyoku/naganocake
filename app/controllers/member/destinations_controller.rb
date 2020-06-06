@@ -8,7 +8,7 @@ class Member::DestinationsController < ApplicationController
 		@new_destination = Destination.new(destination_params)
 		@new_destination.member_id = current_member.id
 		if @new_destination.save
-			redirect_to destinations_path
+			redirect_to destinations_path, notice: "You have registered your address successfully."
 		else
 			@destinations = Destination.all
 			render :index
@@ -22,7 +22,7 @@ class Member::DestinationsController < ApplicationController
 	def update
 		@destination = Destination.find(params[:id])
 	    if @destination.update(destination_params)
-	      redirect_to destinations_path
+	      redirect_to destinations_path, notice: "You have updated your address successfully."
 	    else
 	      render :edit
 	    end
@@ -31,7 +31,7 @@ class Member::DestinationsController < ApplicationController
 	def destroy
 		destination = Destination.find(params[:id])
 		destination.destroy
-		redirect_to destinations_path
+		redirect_to destinations_path, notice: "You have deleted your address successfully."
 	end
 
 	private
