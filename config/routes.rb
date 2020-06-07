@@ -1,6 +1,8 @@
 Rails.application.routes.draw do
 
-  root 'home#top'
+  root 'member/members#top'
+
+  get 'home/invalid' => 'home#invalid'
 
   #admin
   devise_for :admins, controllers: {
