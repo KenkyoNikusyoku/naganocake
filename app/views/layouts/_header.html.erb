@@ -14,6 +14,14 @@
           <li><%= link_to "注文履歴一覧", admin_orders_path %></li>
           <li><%= link_to "ジャンル一覧", admin_genres_path %></li>
           <li><%= link_to "ログアウト", destroy_admin_session_path, method: :delete %></li>
+          <li>
+            <nav class="navbar navbar-light bg-light">
+              <form class="form-inline">
+                <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
+                <button type="submit" class="btn btn-outline-success my-2 my-sm-0">検索</button>
+              </form>
+            </nav>
+          </li>
         <% elsif member_signed_in? %>
         　<li><%= link_to "マイページ", member_path(current_member) %></li>
           <li><%= link_to "商品一覧", products_path %></li>
