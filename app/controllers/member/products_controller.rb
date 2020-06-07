@@ -5,11 +5,7 @@ class Member::ProductsController < ApplicationController
         @products = Product.joins(:genre).where(genres: { is_valid: true })
         @genres = Genre.where(is_valid: true)
         @quantity = Product.count
-        # if
-        #    @users = .page(params[:page]).per(8)
-        # else
-
-        # end
+        @products = Product.page(params[:page]).per(8)
     end
 
     def show

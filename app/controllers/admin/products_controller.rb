@@ -7,7 +7,8 @@ class Admin::ProductsController < ApplicationController
 
     def index
         @products = Product.all
-        #Products.paginate(page:params[:page])
+        # Products.paginate(page:params[:page])
+        @products = Product.page(params[:page]).per(10)
     end
 
     def edit
@@ -46,7 +47,7 @@ class Admin::ProductsController < ApplicationController
 
     def set_product
         @product = Product.find(params[:id])
-    end 
+    end
 
     #ジャンルの表記どうする？
     def set_genres

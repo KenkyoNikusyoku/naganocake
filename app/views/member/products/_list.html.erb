@@ -3,16 +3,14 @@
 		<li class="list-group-item">ジャンル検索</li>
 		<li class="list-group-item">
 
-
 		  <% genres.each do |genre| %>
-		    <div class="?">
-			  <%= link_to ? %>
-		    </div>
-
+             <li>
+				<%= link_to user_genre_path(genre.id) do %>
+				<%= genre.name %>
+				<% end %>
+             </li>
 		  <% end %>
 
 	    </li>
    </ul>
 </div>
-
-<!-- ? 分からないところ -->
