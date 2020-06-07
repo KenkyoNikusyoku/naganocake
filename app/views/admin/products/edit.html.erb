@@ -1,38 +1,53 @@
-<h1>商品編集</h1>
+
 
 <%= render 'layouts/error.message', model: @product %>
 
 <%= form_for @product, url: admin_product_path, method: :patch, class: "form-control" do |f| %>
+    <div class="col-xs-4">
+        <h1>商品編集</h1>
+        
+        <%= attachment_image_tag(@product, :image, size: "300x200") %>
+        <br><br><br>
+        <%= f.attachment_field :image, class: "image" %>
 
- 
-   
-    
+        
+    </div>
+    <div class="col-xs-5">
     <table class="table">
+
         <tr>
-        <td> <%= f.attachment_field :image, class: "image" %> </td>
-        <td> <%= attachment_image_tag(@product, :image, size: "300x300") %> </td>
+            <th>商品名</th>
+            <td> <%= f.text_field :name, class:"form-control" %> </td>
+            <td></td>
         </tr>
         <tr>
-        <th>title</th>
-        <td> <%= f.text_field :name, class:"form-control" %> </td>
-     
-        <th>商品説明</th>
+            <th>商品説明</th>
             <td> <%= f.text_area :introduction, class:"form-control" %> </td>
-            
-        <th>商品ジャンル</th>
+            <td></td>
+        </tr>
+        <tr>
+           <th>商品ジャンル</th>
             <td> <%= f.collection_select :genre_id, Genre.all, :id, :name %> </td>
-     
-        <th>税抜価格</th>
+            <td></td>
+        </tr>
+        <tr>
+            <th>税抜価格</th>
             <td> <%= f.text_field :price, class:"form-control" %>円 </td>
-        
-        <th>販売ステータス</th>
-           <td> 有効 <%= f.radio_button :is_valid, true %>  </td>
-           <td> 無効 <%= f.radio_button :is_valid, false %>  </td>
-        <td> <%= f.submit "変更を保存する", class:"btn btn-lg btn-block btn-base-1 mt-20" %> </td>
+            <td></td>
+        </tr>
+        <tr>
+            <th>販売ステータス</th>
+            <td> 有効 <%= f.radio_button :is_valid, true %>  </td>
+            <td> 無効 <%= f.radio_button :is_valid, false %>  </td>
         </tr>
     </table>
-    
-       
-    
-      
+    </div>
+    <div class="col-xs-3">
+        <div class="product-edit">
+            <%= f.submit "変更を保存", class:"btn btn-primary btn-sm" %> 
+        </div>
+    </div>
+
  <% end %>
+</div>
+</div>
