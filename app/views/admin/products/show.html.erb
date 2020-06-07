@@ -1,9 +1,9 @@
-<div class="container">
+
     <div class="row">
 
         <div class="col-xs-4">
         <h1>商品詳細</h1>
-        <%= attachment_image_tag(@product, :image, size: "300x240") %>
+        <%= attachment_image_tag @product, :image, :limit, 300, 300, fallback: "no-image.png",size: "300x240" %>
         </div>
 
         <div class="col-xs-5">
