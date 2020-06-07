@@ -1,7 +1,5 @@
-<div class="row">
-  <div class="page-header">
-    <h1>注文履歴詳細</h1>
-  </div>
+<div class="row page-header">
+  <h1>注文履歴詳細</h1>
 </div>
 
 <div class="row">
@@ -31,6 +29,7 @@
         <td><b>注文ステータス</b></td>
         <td>
           <%= form_for(@order, url: "/admin/orders/#{@order.id}/order_update") do |f| %>
+          <%= render 'layouts/error.message', model: f.object %>
             <% statuses = {"入金待ち": 1, "入金確認": 2, "製作中": 3, "発送準備中": 4, "発送済み": 5} %>
             <%= f.select :status, options_for_select(statuses.map{ |key, value| [key, value]},@order.status_before_type_cast)%>
               <%= f.submit "更新", class: "btn btn-primary"%>
@@ -60,6 +59,7 @@
         <td><%= number_to_currency(op.subtotal * 1.1, :format => "%u%n", :unit => "￥", :precision => 0) %></td>
         <td>
         <%= form_for(op, url: "/admin/orders/#{op.id}" ) do |f| %>
+          <%= render 'layouts/error.message', model: f.object %>
           <% work_statuses = { "着手不可": 1, "製作待ち": 2, "製作中": 3, "製作完了": 4 } %>
           <%= f.select :work_status, options_for_select(work_statuses.map{ |key, value| [key, value] },op.work_status_before_type_cast)%>
           <%= f.submit "更新", class: "btn btn-primary"%>

@@ -1,59 +1,64 @@
-<h4><%= @member.last_name %><%= @member.first_name %>さんの会員情報編集</h4>
+<%= render 'layouts/error.message', model: @member %>
+<div class="row page-header">
+    <h4><%= @member.last_name %><%= @member.first_name %>さんの会員情報編集</h4>
+</div>
 
-<%= form_for(@member, url:admin_member_path, method: :patch) do |f| %>
-<table>
-    <tbody>
+<div class="row">
+    <%= form_for(@member, url:admin_member_path, method: :patch) do |f| %>
+    <table>
+        <tbody>
 
-        <tr>
-        <th>会員ID</th>
-        <td><%= @member.id %></td>
-        </tr>
+            <tr>
+                <th>会員ID</th>
+                <td><%= @member.id %></td>
+            </tr>
 
-        <tr>
-        <th>氏名</th>
-        <td><%= f.text_field :last_name %></td>
-        <td><%= f.text_field :first_name %></td>
-        </tr>
+            <tr>
+                <th>氏名</th>
+                <td><%= f.text_field :last_name %></td>
+                <td><%= f.text_field :first_name %></td>
+            </tr>
 
-        <tr>
-        <th>フリガナ</th>
-        <td><%= f.text_field :last_name_kana %></td>
-        <td><%= f.text_field :first_name_kana %></td>
-        </tr>
+            <tr>
+                <th>フリガナ</th>
+                <td><%= f.text_field :last_name_kana %></td>
+                <td><%= f.text_field :first_name_kana %></td>
+            </tr>
 
-        <tr>
-        <th>郵便番号</th>
-        <td><%= f.text_field :postal_code %></td>
-        </tr>
+            <tr>
+                <th>郵便番号</th>
+                <td><%= f.text_field :postal_code %></td>
+            </tr>
 
-        <tr>
-        <th>住所</th>
-        <td><%= f.text_field :address %></td>
-        </tr>
+            <tr>
+                <th>住所</th>
+                <td><%= f.text_field :address %></td>
+            </tr>
 
-        <tr>
-        <th>電話番号</th>
-        <td><%= f.telephone_field :telephone %></td>
-        </tr>
+            <tr>
+                <th>電話番号</th>
+                <td><%= f.telephone_field :telephone %></td>
+            </tr>
 
-        <tr>
-        <th>メールアドレス</th>
-        <td><%= f.text_field :email %></td>
-        </tr>
+            <tr>
+                <th>メールアドレス</th>
+                <td><%= f.text_field :email %></td>
+            </tr>
 
-        <tr>
-        <th>会員ステータス</th>
-        <td><%= f.radio_button :is_deleted, false %>
-            <%= f.label :is_valid, "有効", value: false %>
-        </td>
-        <td><%= f.radio_button :is_deleted, true %>
-            <%= f.label :is_valid, "退会済み", value: true %>
-        </td>
-        </tr>
+            <tr>
+                <th>会員ステータス</th>
+                <td><%= f.radio_button :is_deleted, false %>
+                    <%= f.label :is_valid, "有効", value: false %>
+                </td>
+                <td><%= f.radio_button :is_deleted, true %>
+                <%= f.label :is_valid, "退会済み", value: true %>
+                </td>
+            </tr>
 
-        <tr>
-        <th><%= f.submit '変更を保存する', class: "btn btn-primary" %></th>
-        </tr>
-    </tbody>
-</table>
-<% end %>
+            <tr>
+                <th><%= f.submit '変更を保存する', class: "btn btn-primary" %></th>
+            </tr>
+        </tbody>
+    </table>
+    <% end %>
+</div>

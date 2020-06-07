@@ -1,76 +1,81 @@
-<h1>注文履歴詳細</h1>
-<div class="col-xs-6">
-  <h4>注文情報</h4>
-  <table class="table table-hover table-bordered">
-    <tbody>
-      <tr>
-        <td>注文日</td>
-        <td><%= @order.created_at.strftime('%Y/%m/%d')  %></td>
-      </tr>
-      <tr>
-        <td>配送先</td>
-        <td>
-          <p><%= @order.postal_code %></p>
-          <p><%= @order.address %></p>
-          <p><%= @order.receiver %></p>
-        </td>
-      </tr>
-      <tr>
-        <td>支払方法</td>
-        <td>
-          <% case @order.payment_option %>
-          <% when "bank_transfer" %>
-            <%= "銀行振込" %>
-          <% when "credit_card" %>
-            <%= "クレジットカード" %>
-          <% end %>
-        </td>
-      </tr>
-      <tr>
-        <td>ステータス</td>
-        <td>
-          <% case @order.status %>
-          <% when 1 %>
-            <%= "入金待ち" %>
-          <% when 2 %>
-            <%= "入金確認" %>
-          <% when 3 %>
-            <%= "制作中" %>
-          <% when 4 %>
-            <%= "発送準備中" %>
-          <% when 5 %>
-            <%= "発送済み" %>
-          <% end %>
-        </td>
-      </tr>
-    </tbody>
-  </table>
+<div class="row page-header">
+  <h1>注文履歴詳細</h1>
 </div>
 
-<div class="col-xs-4">
-  <h4>請求情報</h4>
-  <table class="table table-hover table-bordered">
-    <tbody>
-      <tr>
-        <td>商品合計</td>
-        <td>
-          <%= number_to_currency(amount(@order_products)*1.1, :format => "%u%n", :unit => "￥", :precision => 0) %>
-        </td>
-      </tr>
-      <tr>
-        <td>配送料</td>
-        <td>
-          <%= number_to_currency(@order.postage, :format => "%u%n", :unit => "￥", :precision => 0) %>
-        </td>
-      </tr>
-      <tr>
-        <td>ご請求金額</td>
-        <td>
-          <%= number_to_currency(@order.billing, :format => "%u%n", :unit => "￥", :precision => 0) %>
-        </td>
-      </tr>
-    </tbody>
-  </table>
+<div class="row">
+  <div class="col-xs-6">
+    <h4>注文情報</h4>
+    <table class="table table-hover table-bordered">
+      <tbody>
+        <tr>
+          <td>注文日</td>
+          <td><%= @order.created_at.strftime('%Y/%m/%d')  %></td>
+        </tr>
+        <tr>
+          <td>配送先</td>
+          <td>
+            <p><%= @order.postal_code %></p>
+            <p><%= @order.address %></p>
+            <p><%= @order.receiver %></p>
+          </td>
+        </tr>
+        <tr>
+          <td>支払方法</td>
+          <td>
+            <% case @order.payment_option %>
+            <% when "bank_transfer" %>
+              <%= "銀行振込" %>
+            <% when "credit_card" %>
+              <%= "クレジットカード" %>
+            <% end %>
+          </td>
+        </tr>
+        <tr>
+          <td>ステータス</td>
+          <td>
+            <% case @order.status %>
+            <% when 1 %>
+              <%= "入金待ち" %>
+            <% when 2 %>
+              <%= "入金確認" %>
+            <% when 3 %>
+              <%= "制作中" %>
+            <% when 4 %>
+              <%= "発送準備中" %>
+            <% when 5 %>
+              <%= "発送済み" %>
+            <% end %>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="col-xs-4">
+    <h4>請求情報</h4>
+    <table class="table table-hover table-bordered">
+      <tbody>
+        <tr>
+          <td>商品合計</td>
+          <td>
+            <%= number_to_currency(amount(@order_products)*1.1, :format => "%u%n", :unit => "￥", :precision => 0) %>
+          </td>
+        </tr>
+        <tr>
+          <td>配送料</td>
+          <td>
+            <%= number_to_currency(@order.postage, :format => "%u%n", :unit => "￥", :precision => 0) %>
+          </td>
+        </tr>
+        <tr>
+          <td>ご請求金額</td>
+          <td>
+            <%= number_to_currency(@order.billing, :format => "%u%n", :unit => "￥", :precision => 0) %>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
 </div>
 
 <div class="row">
