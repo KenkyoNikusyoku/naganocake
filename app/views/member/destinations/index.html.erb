@@ -21,15 +21,15 @@
       <td>宛名</td>
       <td><%= f.text_field :receiver, autofocus: true, autocomplete: "receiver" %></td>
       <td></td>
-      <td><%= f.submit "登録する" %></td>
+      <td><%= f.submit "登録する", class: "btn btn-default" %></td>
     </tr>
   </table>
 
 <% end %>
 
-<table class='table'>
+<table class='table table-bordered'>
   <thead>
-    <tr>
+    <tr class="active">
       <th>郵便番号</th>
       <th>住所</th>
       <th>宛名</th>
