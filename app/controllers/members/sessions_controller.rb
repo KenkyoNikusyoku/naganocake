@@ -11,8 +11,10 @@ class Members::SessionsController < Devise::SessionsController
   # POST /resource/sign_in
   def create
     member = Member.find_by(email: sign_in_params[:email])
-    if member.is_deleted == true
-      redirect_to new_member_session_path
+    if member == nil
+      super
+    elsif member.is_deleted == true
+      redirect_to home_invalid_path
     else
       super
     end
