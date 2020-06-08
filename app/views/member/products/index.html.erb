@@ -37,7 +37,8 @@
         </div>
       </div>
 
-
+<% if request.url.include?('search') %>
+<% else %>
   <div class="row">
     <div class="col-xs-6">
   </div>
@@ -45,3 +46,4 @@
      <%= paginate @products %>
     </div>
   </div>
+<% end %>

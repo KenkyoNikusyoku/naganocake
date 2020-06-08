@@ -10,7 +10,7 @@ class Member::CartProductsController < ApplicationController
         if @cart_products.update(cart_product_params)
           redirect_to cart_products_path,notice: '個数を変更しました'
         else
-          render :index, danger: "個数の変更に失敗しました。"
+          render :index, notice: "個数の変更に失敗しました。"
         end
     end
 
@@ -38,7 +38,7 @@ class Member::CartProductsController < ApplicationController
         if member.cart_products.destroy_all
           redirect_to cart_products_path,notice: 'カート内の商品を全て削除しました。'
         else
-          render :index, danger: "カート内の商品を削除出来ませんでした。"
+          render :index, notice: "カート内の商品を削除出来ませんでした。"
         end
       end
 
