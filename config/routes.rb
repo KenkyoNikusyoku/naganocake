@@ -54,7 +54,11 @@ Rails.application.routes.draw do
       end
     end
     resources :destinations, only: [:index, :create, :edit, :update, :destroy]
-    resources :products, only: [:index, :show]
+    resources :products, only: [:index, :show] do
+      collection do
+        post :search
+      end
+    end
     resources :cart_products, only: [:index, :update, :create, :destroy] do
       collection do
         delete :all_destroy
