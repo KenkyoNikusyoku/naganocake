@@ -1,8 +1,12 @@
 Rails.application.routes.draw do
 
+  get 'password_resets/new'
+  get 'password_resets/edit'
   root 'member/members#top'
 
   get 'home/invalid' => 'home#invalid'
+
+  resources :password_resets,     only: [:new, :create, :edit, :update]
 
   #admin
   devise_for :admins, controllers: {

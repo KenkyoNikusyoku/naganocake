@@ -1,4 +1,6 @@
 class Member::MembersController < ApplicationController
+	before_action :authenticate_member!, except: :top
+
 	def top
     	@products = Product.joins(:genre).where(genres: { is_valid: true }).shuffle.first(4)
     	@genres = Genre.where(is_valid: true)
