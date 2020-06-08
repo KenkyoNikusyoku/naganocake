@@ -8,7 +8,7 @@
     <div class="col-xs-4">
        
         
-        <%= attachment_image_tag(@product, :image, size: "300x200") %>
+        <%= attachment_image_tag @product, :image, size: '300x240', fallback:"no_image.jpg",size:'300x240' %>
         <br><br><br>
         <%= f.attachment_field :image, class: "image" %>
 
