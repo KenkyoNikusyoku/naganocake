@@ -31,7 +31,7 @@ class Member::OrdersController < ApplicationController
           address: params[:order][:address]
           )
       end
-      redirect_to thanks_orders_path, success: '購入成功しました.'
+      redirect_to thanks_orders_path, notice: '購入成功しました.'
     else
       render :confirm, notice: '購入に失敗しました'
     end
