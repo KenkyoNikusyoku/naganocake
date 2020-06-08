@@ -1,10 +1,25 @@
 <div class="row">
-	<h1>Forgot password</h1>
-	<div class="col-md-6 col-md-offset-3">
-		<%= form_for(:password_reset, url: password_resets_path) do |f| %>
-		<%= f.label :email %>
-		<%= f.email_field :email, class: 'form-control' %>
-		<%= f.submit "Submit", class: "btn btn-primary" %>
-		 <% end %>
-	</div>
+	<h2>パスワードをお忘れの場合</h2>
+
+ <%= form_for(:password_reset, url: password_resets_path) do |f| %>
+
+
+  <table class="table">
+    <tr>
+      <td></td>
+      <td></td>
+      <td>パスワード</td>
+      <td colspan="2"><%= f.password_field :password, autocomplete: "current-password", class: "col-xs-8" %></td>
+    </tr>
+
+  <table class="table">
+    <tr>
+      <td></td>
+      <td></td>
+      <td lign="right"><%= f.submit "ログイン", class: "btn btn-primary" %></td>
+    </tr>
+
+ <% end %>
+
 </div>
+
