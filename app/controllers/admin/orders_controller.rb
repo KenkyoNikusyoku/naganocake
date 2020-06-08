@@ -4,8 +4,22 @@ class Admin::OrdersController < ApplicationController
   include ApplicationHelper
 
   def index
-  	@orders = Order.all
-    @orders = Order.page(params[:page]).per(5)
+    params[:prev_path].nil? ? @prev_path = Rails.application.routes.recognize_path(request.referer) : @prev_path = params[:prev_path].permit!
+    if params[:is_from_header].to_i == 1
+      @orders = Order.all.order(created_at: "DESC").page(params[:page]).per(5)
+    elsif
+      if @prev_path[:controller] == "admin/members"
+        case @prev_path[:action]
+          when "top"
+            @orders = Order.where(created_at: Time.zone.today.all_day).order(created_at: "DESC").page(params[:page]).per(5)
+          when "show"
+            @member_id = params[:member_id]
+            @orders = Order.where(member_id: params[:member_id]).order(created_at: "DESC").page(params[:page]).per(5)
+        end
+      end
+    else
+      @orders = Order.all.order(created_at: "DESC").page(params[:page]).per(5)
+    end
   end
 
   def show

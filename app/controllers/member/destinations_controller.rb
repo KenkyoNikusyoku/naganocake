@@ -1,4 +1,5 @@
 class Member::DestinationsController < ApplicationController
+	before_action :authenticate_member!
 	def index
 		@new_destination = Destination.new
 		@destinations = Destination.where(member_id: current_member.id)
