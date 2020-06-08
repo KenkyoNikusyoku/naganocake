@@ -11,8 +11,8 @@
         </nav>
       </div>
       <div class="col-xs-9" style="height:100px;">
-        <nav>
-          <ul class="nav navbar-nav navbar-right header-title">
+        <nav class="clearfix" style="line-height: 100px;">
+          <ul class="nav navbar-nav navbar-right header-navi">
             <% if admin_signed_in? %>
               <li><%= link_to "商品一覧", admin_products_path %></li>
               <li><%= link_to "会員一覧", admin_members_path %></li>
@@ -35,10 +35,10 @@
           </ul>
         </nav>
         <% if admin_signed_in? %>
-          <div class="input-group">
+          <div class="input-group header-search">
             <%= text_field_tag :search, params[:search], placeholder: "Search", class: "form-control" %>
             <span class="input-group-btn">
-              <%= button_tag "", :name => nil, class: "glyphicon glyphicon-search btn btn-primary" %>
+              <%= button_tag "", :name => nil, class: "glyphicon glyphicon-search btn btn-default" %>
             </span>
           </div>
         <% else %>
