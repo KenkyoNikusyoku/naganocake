@@ -3,7 +3,7 @@ class Admin::GenresController < ApplicationController
     #,edit,updateの内容重複の為
     before_action :set_genre, only: [:edit, :update]
 
-    
+
     def index
         @genres = Genre.all
         #Genres.paginate(page:params[:page])

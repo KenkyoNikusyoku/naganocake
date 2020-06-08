@@ -1,5 +1,6 @@
+ <div class="row">
     <div class="col-xs-2">
-        <h2>ジャンル検索</h2>
+        <%= render 'member/products/list', genres: @genres %>
     </div>
 
         <div class="col-xs-10">
@@ -14,9 +15,9 @@
 
                 <%= attachment_image_tag product, :image, :fill, 60, 60, fallback: "no_image.jpg" %>
 
-                <% end %><br>
-
                 <p><%= product.name %></p>
+
+                <% end %>
 
                 <p><% if product.is_valid == true %>
                     <%= product.price %>円</p>
@@ -33,6 +34,7 @@
             </div>
           <% end %>
         </div>
+      </div>
 
 
   <div class="row">
