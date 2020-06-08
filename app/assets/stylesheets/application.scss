@@ -31,7 +31,15 @@ body{
     font-size: 30px;
 }
 
+/*ページネーション自体のデザイン*/
 
+.pagination>.next>a{
+	background-color: red;
+}
+
+.pagination{
+	background-color: blue;
+}
 
 /*ページネーション自体のデザイン*/
 .pagination>li>a {
