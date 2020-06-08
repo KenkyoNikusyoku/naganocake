@@ -18,8 +18,12 @@
  @import "bootstrap-sprockets";
  @import "bootstrap";
 
+header {
+  height: 100px;
+}
+
 body{
-	padding-top:50px;
+	padding: 80px 0;
 }
 
 .btn-plus {
@@ -56,4 +60,32 @@ body{
 /*ホバー時のデザイン*/
 .pagination>li>a:hover {
   border-radius: 15px;    /*角を丸くする*/
+}
+
+/*トップページ*/
+.welcome {
+  height: 400px;
+  margin-left: 10px;
+  background-image: url(sweet-2651110_1920.jpg);
+  background-size: cover;
+  background-position: center;
+  position: relative;
+}
+
+.welcome-message {
+  width: 60%;
+  height: 60%;
+  background-color: rgba( 0, 0, 0, 0.5);
+  text-align: center;
+  padding-top: 70px;
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  margin: auto;
+}
+
+.welcome-message p {
+  color: #fff;
 }
