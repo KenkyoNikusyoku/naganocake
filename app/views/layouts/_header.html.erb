@@ -1,43 +1,48 @@
-<header class="navbar navbar-fixed-top navbar-inverse">
+<header class="navbar navbar-fixed-top" style="background-color:#3d2c26;color: #fff;">
   <div class="container">
-    <nav class="nav navbar-nav navbar-left">
-      <span class="header_title">
-        <%= link_to "NaganoCake", root_path %>
-      </span>
-      <% if member_signed_in? %>
-        <span>ようこそ、<%= current_member.last_name %>さん！</span>
-      <% end %>
-    </nav>
-    <nav>
-      <ul class="nav navbar-nav navbar-right">
+    <div class="row">
+      <div class="col-xs-3">
+        <nav class="nav navbar-nav navbar-left">
+          <span class="header-logo">
+            <%= link_to root_path do %>
+              <%= image_tag 'logo.jpg', height: '100' %>
+            <% end %>
+          </span>
+        </nav>
+      </div>
+      <div class="col-xs-9" style="height:100px;">
+        <nav class="clearfix" style="line-height: 100px;">
+          <ul class="nav navbar-nav navbar-right header-navi">
+            <% if admin_signed_in? %>
+              <li><%= link_to "商品一覧", admin_products_path %></li>
+              <li><%= link_to "会員一覧", admin_members_path %></li>
+              <li><%= link_to "注文履歴一覧", admin_orders_path(is_from_header: 1) %></li>
+              <li><%= link_to "ジャンル一覧", admin_genres_path %></li>
+              <li><%= link_to "ログアウト", destroy_admin_session_path, method: :delete %></li>
+            <% elsif member_signed_in? %>
+              <li>ようこそ、<%= current_member.last_name %>さん！</li>
+            　<li><%= link_to "マイページ", member_path(current_member) %></li>
+              <li><%= link_to "商品一覧", products_path %></li>
+              <li><%= link_to "カート", cart_products_path %></li>
+              <li><%= link_to "ログアウト", destroy_member_session_path, method: :delete %></li>
+            <% else %>
+              <li><%= link_to 'Login(admin)', new_admin_session_path %></li>
+              <!-- ↑消す -->
+              <li><%= link_to '商品一覧', products_path %></li>
+              <li><%= link_to '新規登録', new_member_registration_path %></li>
+              <li><%= link_to 'ログイン', new_member_session_path %></li>
+            <% end %>
+          </ul>
+        </nav>
         <% if admin_signed_in? %>
-          <li><%= link_to "商品一覧", admin_products_path %></li>
-          <li><%= link_to "会員一覧", admin_members_path %></li>
-          <li><%= link_to "注文履歴一覧", admin_orders_path(is_from_header: 1) %></li>
-          <li><%= link_to "ジャンル一覧", admin_genres_path %></li>
-          <li><%= link_to "ログアウト", destroy_admin_session_path, method: :delete %></li>
-        <% elsif member_signed_in? %>
-        　<li><%= link_to "マイページ", member_path(current_member) %></li>
-          <li><%= link_to "商品一覧", products_path %></li>
-          <li><%= link_to "カート", cart_products_path %></li>
-          <li><%= link_to "ログアウト", destroy_member_session_path, method: :delete %></li>
-        <% else %>
-          <li><%= link_to 'Login(admin)', new_admin_session_path %></li>
-          <!-- ↑消す -->
-          <li><%= link_to '商品一覧', products_path %></li>
-          <li><%= link_to '新規登録', new_member_registration_path %></li>
-          <li><%= link_to 'ログイン', new_member_session_path %></li>
-        <% end %>
-      </ul>
-      <% if admin_signed_in? %>
-        <div class="input-group">
+          <div class="input-group header-search">
             <%= text_field_tag :search, params[:search], placeholder: "Search", class: "form-control" %>
             <span class="input-group-btn">
-                <%= button_tag "", :name => nil, class: "glyphicon glyphicon-search btn btn-primary" %>
+              <%= button_tag "", :name => nil, class: "glyphicon glyphicon-search btn btn-default" %>
             </span>
-        </div>
-      <% else %>
-      <% end %>
-    </nav>
+          </div>
+        <% else %>
+        <% end %>
+      </div>
   </div>
 </header>

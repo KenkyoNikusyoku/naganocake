@@ -18,12 +18,41 @@
  @import "bootstrap-sprockets";
  @import "bootstrap";
 
+.clearfix::after {
+  content: "";
+  display: block;
+  clear: both;
+}
+
 header {
   height: 100px;
 }
 
+header .container {
+  width: 100%;
+  margin: 0;
+}
+
+.header-navi a:visited {
+  color: orange;
+}
+
+.header-search {
+  width: 20%;
+  float: right;
+}
+
+.footer-navi {
+  clear: both;
+}
+
+.footer-navi li {
+  line-height: 50px;
+  text-align: center;
+}
+
 body{
-	padding: 80px 0;
+	padding: 120px 0;
 }
 
 .btn-plus {
