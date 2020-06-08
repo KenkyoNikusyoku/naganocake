@@ -15,15 +15,12 @@ module Naganocake
     # Application configuration can go into files in config/initializers
     # -- all .rb files in that directory are automatically loaded after loading
     # the framework and any gems in your application.
-  end
-end
+    #↓表示時間を日本時間にするために記載
+    #表示時間を日本時間にするために記載
+    config.time_zone = 'Tokyo'
 
-
-module Naganocake
-  class Application < Rails::Application
-    # Settings in config/environments/* take precedence over those specified here.
-    # Application configuration should go into files in config/initializers
-    # -- all .rb files in that directory are automatically loaded.
-    config.i18n.default_locale = :ja #追加
+    #エラーメッセージを日本語化するために記載
+    config.i18n.default_locale = :ja
+    config.i18n.load_path += Dir[Rails.root.join('config', "locales", "*.yml")]
   end
 end

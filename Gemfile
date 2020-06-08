@@ -82,5 +82,7 @@ gem 'kaminari-bootstrap', '~> 3.0.1'
 
 gem 'bcrypt'
 
+gem 'rails-i18n'
+
 
 
