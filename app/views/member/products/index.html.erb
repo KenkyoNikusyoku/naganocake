@@ -13,7 +13,7 @@
 
               <%= link_to product_path(product) do %>
 
-                <%= attachment_image_tag @product, :image, size: '100x1000', fallback:"no_image.jpg",size:'100x100' %>
+                <%= attachment_image_tag product, :image, size: '100x1000', fallback:"no_image.jpg",size:'100x100' %>
 
 
                 <p><%= product.name %></p>
