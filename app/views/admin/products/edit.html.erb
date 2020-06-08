@@ -1,14 +1,14 @@
-<div class="row">
+
+
 <%= render 'layouts/error.message', model: @product %>
-    <h1>商品編集</h1>
-</div>
-<div classz-"row">
+
+<h1>商品編集</h1>
 
 <%= form_for @product, url: admin_product_path, method: :patch, class: "form-control" do |f| %>
     <div class="col-xs-4">
+       
         
-        
-        <%= attachment_image_tag(@product, :image, size: "300x200") %>
+        <%= attachment_image_tag @product, :image, size: '300x240', fallback:"no_image.jpg",size:'300x240' %>
         <br><br><br>
         <%= f.attachment_field :image, class: "image" %>
 
@@ -44,7 +44,6 @@
         </tr>
     </table>
     </div>
-</div>
     <div class="col-xs-3">
         <div class="product-edit">
             <%= f.submit "変更を保存", class:"btn btn-primary btn-sm" %> 

@@ -20,7 +20,7 @@
                         <% @cart_products.each do |cart_product| %>
                             <tr>
                                 <td>
-                                    <p>画像が入る</p>
+                                    <p><%= attachment_image_tag cart_product.product, :image, size: '100x80', fallback:"no_image.jpg",size:'100x80' %></p>
                                     <%= cart_product.product.name %>
                                 </td>
                                 <td>
@@ -63,6 +63,3 @@
         </div>
     </div>
 </div>
-
-
-
