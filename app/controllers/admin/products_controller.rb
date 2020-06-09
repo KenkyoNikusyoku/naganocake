@@ -6,9 +6,8 @@ class Admin::ProductsController < ApplicationController
 
 
     def index
-        @products = Product.all
+        @products = Product.all.page(params[:page]).per(10)
         # Products.paginate(page:params[:page])
-        @products = Product.page(params[:page]).per(10)
     end
 
     def edit
