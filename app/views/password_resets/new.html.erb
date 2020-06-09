@@ -8,15 +8,15 @@
     <tr>
       <td></td>
       <td></td>
-      <td>パスワード</td>
-      <td colspan="2"><%= f.password_field :password, autocomplete: "current-password", class: "col-xs-8" %></td>
+      <td>メールアドレス</td>
+      <td colspan="2"><%= f.email_field :email, class: "col-xs-8", autofocus: true %></td>
     </tr>
 
   <table class="table">
     <tr>
       <td></td>
       <td></td>
-      <td lign="right"><%= f.submit "ログイン", class: "btn btn-primary" %></td>
+      <td lign="right"><%= f.submit "メールを送信する", class: "btn btn-default" %></td>
     </tr>
 
  <% end %>
