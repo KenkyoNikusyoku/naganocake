@@ -1,53 +1,57 @@
-<h2>配送先登録/一覧</h2>
+<div class="row">
+  <div class="col-xs-12">
+    <h2>配送先登録/一覧</h2>
 
-<%= render 'layouts/error.message', model: @new_destination %>
+    <%= render 'layouts/error.message', model: @new_destination %>
 
-<%= form_for(@new_destination) do |f| %>
+    <%= form_for(@new_destination) do |f| %>
 
 
-  <table class="table">
-    <tr>
-      <td>郵便番号(ハイフンなし)</td>
-      <td><%= f.text_field :postal_code, autofocus: true, autocomplete: "postal_code" %></td>
-      <td></td>
-      <td></td>
-    </tr>
-    <tr>
-      <td>住所</td>
-      <td colspan="2"><%= f.text_field :address, autofocus: true, autocomplete: "address", class: "col-xs-12" %></td>
-      <td></td>
-    </tr>
-    <tr>
-      <td>宛名</td>
-      <td><%= f.text_field :receiver, autofocus: true, autocomplete: "receiver" %></td>
-      <td></td>
-      <td><%= f.submit "登録する", class: "btn btn-default" %></td>
-    </tr>
-  </table>
+      <table class="table">
+        <tr>
+          <td>郵便番号(ハイフンなし)</td>
+          <td><%= f.text_field :postal_code, autofocus: true, autocomplete: "postal_code" %></td>
+          <td></td>
+          <td></td>
+        </tr>
+        <tr>
+          <td>住所</td>
+          <td colspan="2"><%= f.text_field :address, autofocus: true, autocomplete: "address", class: "col-xs-12" %></td>
+          <td></td>
+        </tr>
+        <tr>
+          <td>宛名</td>
+          <td><%= f.text_field :receiver, autofocus: true, autocomplete: "receiver" %></td>
+          <td></td>
+          <td><%= f.submit "登録する", class: "btn btn-default" %></td>
+        </tr>
+      </table>
 
-<% end %>
-
-<table class='table table-bordered'>
-  <thead>
-    <tr class="active">
-      <th>郵便番号</th>
-      <th>住所</th>
-      <th>宛名</th>
-      <th></th>
-    </tr>
-  </thead>
-
-  <tbody>
-    <% @destinations.each do |destination| %>
-      <tr>
-        <td><%= destination.postal_code %></td>
-        <td><%= destination.address %></td>
-        <td><%= destination.receiver %></td>
-        <td>
-          <%= link_to "編集する", edit_destination_path(destination.id), class: "btn-sm btn-success" %>
-          <%= link_to "削除する", destination_path(destination.id), method: :delete, data: { confirm: '本当に消しますか？' }, class: "btn-sm btn-danger" %>
-        </td>
-      </tr>
     <% end %>
-  </tbody>
-</table>
+
+    <table class='table table-bordered'>
+      <thead>
+        <tr class="active">
+          <th>郵便番号</th>
+          <th>住所</th>
+          <th>宛名</th>
+          <th></th>
+        </tr>
+      </thead>
+
+      <tbody>
+        <% @destinations.each do |destination| %>
+          <tr>
+            <td><%= destination.postal_code %></td>
+            <td><%= destination.address %></td>
+            <td><%= destination.receiver %></td>
+            <td>
+              <%= link_to "編集する", edit_destination_path(destination.id), class: "btn-sm btn-success" %>
+              <%= link_to "削除する", destination_path(destination.id), method: :delete, data: { confirm: '本当に消しますか？' }, class: "btn-sm btn-danger" %>
+            </td>
+          </tr>
+        <% end %>
+      </tbody>
+    </table>
+  </div>
+</div>
