@@ -64,15 +64,9 @@ body{
     font-size: 30px;
 }
 
-/*ページネーション自体のデザイン*/
 
-.pagination>.next>a{
-	background-color: red;
-}
 
-.pagination{
-	background-color: blue;
-}
+
 
 /*ページネーション自体のデザイン*/
 .pagination>li>a {
@@ -87,34 +81,6 @@ body{
 }
 
 /*ホバー時のデザイン*/
-.pagination>li>a:hover {
+.pagination>hover {
   border-radius: 15px;    /*角を丸くする*/
-}
-
-/*トップページ*/
-.welcome {
-  height: 400px;
-  margin-left: 10px;
-  background-image: url(sweet-2651110_1920.jpg);
-  background-size: cover;
-  background-position: center;
-  position: relative;
-}
-
-.welcome-message {
-  width: 60%;
-  height: 60%;
-  background-color: rgba( 0, 0, 0, 0.5);
-  text-align: center;
-  padding-top: 70px;
-  position: absolute;
-  top: 0;
-  right: 0;
-  bottom: 0;
-  left: 0;
-  margin: auto;
-}
-
-.welcome-message p {
-  color: #fff;
 }
