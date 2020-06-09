@@ -20,8 +20,7 @@ class Member::CartProductsController < ApplicationController
         if @cart_product.save
           redirect_to cart_products_path,notice: '商品をカートに追加しました.'
         else
-          @product = Product.find(@cart_product.product.id)
-          render 'products/show'
+          redirect_to request.referer,notice: '個数を選択してください.'
         end
     end
 

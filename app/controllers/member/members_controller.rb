@@ -32,7 +32,7 @@ class Member::MembersController < ApplicationController
 	    member.update(is_deleted: true)
 	    #update後にログアウトしたい。
 	    sign_out member
-	    redirect_to new_member_session_path, notice: "退会処理が完了しました。ご利用ありがとうございました。"
+		redirect_to root_path, notice: "退会処理が完了しました。ご利用ありがとうございました。"
 	    #リダイレクト先：トップページに変更する
 	end
 
