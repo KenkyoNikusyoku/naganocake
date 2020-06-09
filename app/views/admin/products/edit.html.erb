@@ -2,13 +2,11 @@
 
 <%= render 'layouts/error.message', model: @product %>
 
-<h1>商品編集</h1>
-
 <%= form_for @product, url: admin_product_path, method: :patch, class: "form-control" do |f| %>
     <div class="col-xs-4">
-       
+        <h1>商品編集</h1>
         
-        <%= attachment_image_tag @product, :image, size: '300x240', fallback:"no_image.jpg",size:'300x240' %>
+        <%= attachment_image_tag(@product, :image, size: "300x200") %>
         <br><br><br>
         <%= f.attachment_field :image, class: "image" %>
 
@@ -34,7 +32,7 @@
         </tr>
         <tr>
             <th>税抜価格</th>
-            <td> <%= f.text_field :price, class:"form-control" %>円 </td>
+            <td> <%= f.number_field :price, class:"form-control" %>円 </td>
             <td></td>
         </tr>
         <tr>
