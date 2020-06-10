@@ -1,4 +1,4 @@
-This was created during our time as students at DMM WEBCAMP.
+This was created during our time as students at DMM WEBCAMP.  
 こちらはDMM WEBCAMPにおけるカリキュラム内で作成した架空のWEBアプリケーションです。
 
 # Name
