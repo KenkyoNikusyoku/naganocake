@@ -7,11 +7,11 @@
         <%= attachment_image_tag @product, :image, size: '300x240', fallback:"no_image.jpg",size:'300x240' %>
         </div>
 
-        <div class="col-xs-5">
+        <div class="col-xs-8">
           <table class="table">
             <tr>
               <th>商品名</th>
-              <td>　<%= @product.name %>　<td>
+              <td><%= @product.name %>　<td>
             </tr>
             <tr>
               <th>商品紹介</th>
@@ -19,25 +19,26 @@
             </tr>
             <tr>
               <th>ジャンル</th>
-              <td>　<%= @product.genre.name %>　<td>
+              <td><%= @product.genre.name %>　<td>
             </tr>
             <tr>
               <th>税込価格(税抜価格)</th>
-              <td> <%= number_to_currency(@product.price*1.1, :format => "%u%n", :unit => "￥", :precision => 0) %>円 (<%= @product.price %>)円<td>
+              <td><%= number_to_currency(@product.price*1.1, :precision => 0) %> (<%= @product.price %>)円<td>
             </tr>
             <tr>
               <th>販売ステータス</th>
               <% if @product.is_valid == true %>
-              <td>  販売中 </td>
+              <td> 販売中 </td>
               <% else %>
               <td> 販売停止中 </td>
               <% end %>
             </tr>
           </table>
         </div>
-
-        <div class="col-xs-3">
-          <p> <%= link_to "編集する", edit_admin_product_path(@product), class: "btn btn-primary btn-sm" %> </p>
+    </div>
+    <div class="row">
+        <div class="col-xs-12">
+          <p> <%= link_to "編集する", edit_admin_product_path(@product), class: "btn btn-primary btn-sm pull-right" %> </p>
         </div>
     </div>
 </div>
