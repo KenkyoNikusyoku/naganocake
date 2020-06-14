@@ -8,7 +8,7 @@
     <p> <%= @product.name %> </p>
     <p> <%= @product.introduction %> </p>
     <p> <%= @product.genre.name %> </p>
-    <p> <%= number_to_currency(@product.price*1.1, :format => "%u%n", :unit => "￥", :precision => 0) %> </p>
+    <p> <%= number_to_currency(@product.price*1.1, :format => "%u%n", :unit => "￥", :precision => 0) %>(税込) </p>
 
 
 

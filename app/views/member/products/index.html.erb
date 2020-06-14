@@ -21,7 +21,7 @@
                 <% end %>
 
                 <p><% if product.is_valid == true %>
-                    <%= product.price %>円</p>
+                <%= number_to_currency(product.price*1.1, :format => "%u%n", :unit => "￥", :precision => 0) %>円</p>
 
                 <% end %>
 

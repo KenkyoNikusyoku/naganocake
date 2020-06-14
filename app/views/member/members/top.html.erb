@@ -30,7 +30,7 @@
                                 <%= product.name %><br>
                             <!-- 売り切れの場合値段を表示しない -->
                                 <% if product.is_valid == true %>
-                                    ¥<%= product.price %>
+                                    <%= number_to_currency(product.price*1.1, :format => "%u%n", :unit => "￥", :precision => 0) %>
                                 <% end %>
                                 <% if product.is_valid == true %>
                                     販売中
