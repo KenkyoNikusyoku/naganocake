@@ -1,0 +1,54 @@
+---
+ja:
+  activerecord:
+    attributes:
+      member:
+        first_name: 名
+        last_name: 姓
+        first_name_kana: セイ
+        last_name_kana: メイ
+        postal_code: 郵便番号
+        address: 住所
+        telephone: 電話番号
+        email: メールアドレス
+        password: パスワード
+        password_confirmation: パスワード（確認用）
+        is_deleted: 会員ステータス
+      product:
+        genre_id: ジャンルID
+        name: 商品名
+        introduction: 商品説明文
+        price: 単価(税別)
+        image_id: 商品画像
+        is_valid: 販売ステータス
+      genre:
+        name: ジャンル名
+        is_valid: 有効・無効
+      order:
+        member_id: 会員ID
+        receiver: 宛名
+        postal_code: 宛先郵便番号
+        address: 宛先住所
+        payment_option: 支払方法
+        status: 注文ステータス
+        postage: 送料
+        billing: 請求金額
+      order_product:
+        product_id: 商品ID
+        order_id: 注文ID
+        price: 購入時単価(税別)
+        quantity: 数量
+        work_status: 製作ステータス
+      destination:
+        member_id: 会員ID
+        receiver: 宛名
+        postal_code: 郵便番号
+        address: 住所
+      cart_product:
+        member_id: 会員ID
+        product_id: 商品ID
+        quantity: 数量
+      admin:
+        email: メールアドレス
+        password: パスワード
+        password_confirmation: パスワード（確認用）

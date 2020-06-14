@@ -1,0 +1,50 @@
+<div class="row">
+    <div class="col-xs-2">
+        <%= render 'member/products/list', genres: @genres %>
+    </div>
+    <div class="col-xs-10">
+        <div class="row">
+            <div class="col-xs-12 welcome">
+                <div class="welcome-message">
+                    <p>ようこそ、ながのCAKEへ！<br>
+                        このサイトは、ケーキ販売のECサイトになります。<br>
+                        会員でない方も商品の閲覧はできますが、<br>
+                        購入には会員登録が必要になります。
+                    </p>
+                </div>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-xs-12">
+                <h3><strong>オススメ商品</strong></h3>
+            </div>
+
+            <div class="Recommended">
+                <% @products.shuffle.first(4).each do |product| %>
+                    <div class="col-xs-3 cakes">
+                        <%= link_to product_path(product.id) do %>
+                            <div>
+                                <p><%= attachment_image_tag product, :image, size: '200x2000', fallback:"no_image.jpg",size:'200x200' %></p><br>
+                            </div>
+                                <%= product.name %><br>
+                            <!-- 売り切れの場合値段を表示しない -->
+                                <% if product.is_valid == true %>
+                                    <%= number_to_currency(product.price*1.1, :format => "%u%n", :unit => "￥", :precision => 0) %>
+                                <% end %>
+                                <% if product.is_valid == true %>
+                                    販売中
+                                <% else %>
+                                    売切れ
+                                <% end %>
+                        <% end %>
+                    </div>
+                <% end %>
+            </div>
+            <br>
+            <div class="text-right">
+                <%= link_to "もっと見る", products_path %>
+            </div>
+        </div>
+    </div>
+</div>

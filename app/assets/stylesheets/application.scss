@@ -1,0 +1,113 @@
+/*
+ * This is a manifest file that'll be compiled into application.css, which will include all the files
+ * listed below.
+ *
+ * Any CSS and SCSS file within this directory, lib/assets/stylesheets, or any plugin's
+ * vendor/assets/stylesheets directory can be referenced here using a relative path.
+ *
+ * You're free to add application-wide styles to this file and they'll appear at the bottom of the
+ * compiled file so the styles you add here take precedence over styles defined in any other CSS/SCSS
+ * files in this directory. Styles in this file should be added after the last require_* statement.
+ * It is generally better to create a new file per style scope.
+ *
+ *= require_tree .
+ *= require_self
+ */
+
+ /*BootstrapをSCSSに読み込ませる*/
+ @import "bootstrap-sprockets";
+ @import "bootstrap";
+
+.clearfix::after {
+  content: "";
+  display: block;
+  clear: both;
+}
+
+header {
+  height: 100px;
+}
+
+header .container {
+  width: 100%;
+  margin: 0;
+}
+
+.header-navi a:visited {
+  color: orange;
+}
+
+.header-search {
+  width: 20%;
+  float: right;
+}
+
+.footer-navi {
+  clear: both;
+}
+
+.footer-navi li {
+  line-height: 50px;
+  text-align: center;
+}
+
+body{
+	padding: 120px 0;
+}
+
+.welcome {
+  height: 400px;
+  margin-left: 10px;
+  background-image: url(sweet-2651110_1920.jpg);
+  background-size: cover;
+  background-position: center;
+  position: relative;
+}
+
+.welcome-message {
+  width: 60%;
+  height: 60%;
+  background-color: rgba( 0, 0, 0, 0.5);
+  text-align: center;
+  padding-top: 70px;
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  margin: auto;
+}
+
+.welcome-message p {
+  color: #fff;
+}
+
+.btn-plus {
+	border-radius: 50%;
+    padding: 5px 10px;
+    margin: 1%;
+    line-height: 40px;
+    color: #9E9E9E;
+    font-size: 30px;
+}
+
+
+
+
+
+/*ページネーション自体のデザイン*/
+.pagination>li>a {
+  border: none;     /*枠線をなくす*/
+  color: #696969;   /*文字の色を変える*/
+}
+
+/* 表示しているページ番号のデザイン */
+.pagination>.active>a {
+  background: #93c9ff;     /*背景の色を変える*/
+  border-radius: 15px;     /*角を丸くする*/
+}
+
+/*ホバー時のデザイン*/
+.pagination>hover {
+  border-radius: 15px;    /*角を丸くする*/
+}

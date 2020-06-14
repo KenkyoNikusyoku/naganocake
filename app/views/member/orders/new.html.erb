@@ -1,0 +1,75 @@
+  <div class="row">
+    <h1>注文情報入力</h1>
+  </div>
+
+  <div class="row">
+    <div class="form-horizontal" role="form">
+      <%= form_for(@order, url: confirm_orders_path, method: :get) do |f| %>
+        <%= render 'layouts/error.message', model: f.object %>
+        <div class="form-group">
+          <div class="col-xs-7">
+            <b>支払い方法</b>
+          </div>
+        </div>
+        <div class="form-group">
+          <div class="col-xs-8 col-xs-offset-2">
+            <%= f.radio_button :payment_option, 2 %>
+            <%= f.label :payment_option, "クレジットカード", value: 2, style: "display: inline-block;" %>
+          </div>
+        </div>
+        <div class="form-group">
+          <div class="col-xs-8 col-xs-offset-2">
+            <%= f.radio_button :payment_option, 1 %>
+            <%= f.label :payment_option, "銀行振込", value: 1, style: "display: inline-block;" %>
+          </div>
+        </div>
+
+        <div class="form-group">
+          <div class="col-xs-7">
+            <b>お届け先</b>
+          </div>
+        </div>
+
+        <div class="form-group">
+          <div class="col-xs-8 col-xs-offset-2">
+            <%= f.radio_button :radio_number, 1 %>
+            <%= f.label :radio_number,
+            "ご自身の住所\n#{current_member.postal_code} #{current_member.address}\n#{current_member.last_name}　#{current_member.first_name}",
+            value: 1, style: "display: inline-block;" %>
+          </div>
+        </div>
+
+        <div class="form-group">
+          <div class="col-xs-8 col-xs-offset-2">
+            <%= f.radio_button :radio_number, 2 %>
+            <%= f.label :radio_number, "登録先住所から選択", value: 2, style: "display: inline-block;" %><br>
+            <%= f.collection_select :destination_id,
+            Destination.where(member_id: current_member.id),
+            :id , :view_destination, form: "new_order" %>
+          </div>
+        </div>
+
+        <div class="form-group">
+          <div class="col-xs-8 col-xs-offset-2">
+            <%= f.radio_button :radio_number, 3 %>
+            <%= f.label :radio_number, "新しいお届け先", value: 3, style: "display: inline-block;" %><br>
+            <%= f.label :postal_code, "郵便番号(ハイフンなし)" %>
+            <%= f.text_field :postal_code %><br>
+            <%= f.label :address, "住所" %>
+            <%= f.text_field :address %><br>
+            <%= f.label :receiver, "宛名" %>
+            <%= f.text_field :receiver %>
+          </div>
+        </div>
+
+
+        <div class="form-group">
+          <div class="col-xs-8 col-xs-offset-2">
+            <%= f.submit "確認画面へ進む", class: "btn btn-primary" %>
+          </div>
+        </div>
+
+
+      <% end %>
+    </div>
+  </div>

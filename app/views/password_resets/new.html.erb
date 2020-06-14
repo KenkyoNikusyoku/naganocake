@@ -1,0 +1,25 @@
+<div class="row">
+	<h2>パスワードをお忘れの場合</h2>
+
+ <%= form_for(:password_reset, url: password_resets_path) do |f| %>
+
+
+  <table class="table">
+    <tr>
+      <td></td>
+      <td></td>
+      <td>メールアドレス</td>
+      <td colspan="2"><%= f.email_field :email, class: "col-xs-8", autofocus: true %></td>
+    </tr>
+
+  <table class="table">
+    <tr>
+      <td></td>
+      <td></td>
+      <td lign="right"><%= f.submit "メールを送信する", class: "btn btn-default" %></td>
+    </tr>
+
+ <% end %>
+
+</div>
+

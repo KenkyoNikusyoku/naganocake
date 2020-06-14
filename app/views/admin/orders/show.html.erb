@@ -1,0 +1,91 @@
+<div class="row page-header">
+  <h1>注文履歴詳細</h1>
+</div>
+
+<div class="row">
+  <div class="col-xs-8">
+    <table class="table table-noborder">
+      <tr>
+        <td><b>購入者</b></td>
+        <td><%= link_to "#{@order.member.last_name}　#{@order.member.first_name}", admin_member_path(@order.member.id) %></td>
+      </tr>
+
+      <tr>
+        <td><b>配送先</b></td>
+        <td>
+          <p><%= "〒#{@order.postal_code} #{@order.address}" %></p>
+          <p><%= @order.receiver %></p>
+        </td>
+      </tr>
+
+      <tr>
+        <td><b>支払い方法</b></td>
+        <td>
+          <%= @order.payment_option_before_type_cast == 1 ? "銀行振込" : "クレジットカード" %>
+        </td>
+      </tr>
+
+      <tr>
+        <td><b>注文ステータス</b></td>
+        <td>
+          <%= form_for(@order, url: "/admin/orders/#{@order.id}/order_update") do |f| %>
+          <%= render 'layouts/error.message', model: f.object %>
+            <% statuses = {"入金待ち": 1, "入金確認": 2, "製作中": 3, "発送準備中": 4, "発送済み": 5} %>
+            <%= f.select :status, options_for_select(statuses.map{ |key, value| [key, value]},@order.status_before_type_cast)%>
+              <%= f.submit "更新", class: "btn btn-primary"%>
+          <% end %>
+        </td>
+      </tr>
+
+    </table>
+  </div>
+</div>
+
+<div class="row">
+  <div class="col-xs-8 table-responsive">
+    <table class="table">
+      <tr class="active">
+        <th>商品名</th>
+        <th>単価(税込み)</th>
+        <th>数量</th>
+        <th>小計</th>
+        <th>制作ステータス</th>
+      <tr>
+      <% @order_products.each do |op| %>
+      <tr>
+        <td><%= op.product.name %></td>
+        <td><%= number_to_currency(op.price * 1.1, :format => "%u%n", :unit => "￥", :precision => 0) %></td>
+        <td><%= op.quantity %></td>
+        <td><%= number_to_currency(op.subtotal * 1.1, :format => "%u%n", :unit => "￥", :precision => 0) %></td>
+        <td>
+        <%= form_for(op, url: "/admin/orders/#{op.id}" ) do |f| %>
+          <%= render 'layouts/error.message', model: f.object %>
+          <% work_statuses = { "着手不可": 1, "製作待ち": 2, "製作中": 3, "製作完了": 4 } %>
+          <%= f.select :work_status, options_for_select(work_statuses.map{ |key, value| [key, value] },op.work_status_before_type_cast)%>
+          <%= f.submit "更新", class: "btn btn-primary"%>
+        <% end %>
+        </td>
+      <tr>
+      <% end %>
+    </table>
+  </div>
+
+  <div class="col-xs-4">
+    <table class="table table-noborder">
+      <tr>
+        <td><b>商品合計</b></td>
+        <td><%= number_to_currency(amount(@order_products) * 1.1, :format => "%u%n", :unit => "￥", :precision => 0) %></td>
+      </tr>
+      <tr>
+        <td><b>送料</b></td>
+        <td><%= number_to_currency(@order.postage, :format => "%u%n", :unit => "￥", :precision => 0) %></td>
+      </tr>
+      <tr>
+        <td><b>請求金額合計</b></td>
+        <td>
+          <%= number_to_currency(@order.billing, :format => "%u%n", :unit => "￥", :precision => 0) %>
+        </td>
+      </tr>
+    </table>
+  </div>
+</div>

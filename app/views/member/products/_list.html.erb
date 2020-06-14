@@ -1,0 +1,23 @@
+<div class="row">
+	<ul class="list-group">
+		<li class="list-group-item list-group-item-warning text-center"><h4>ジャンル検索</h4></li>
+
+		 <li class="list-group-item text-center">
+
+		  <% genres.each do |genre| %>
+             	<h5 class="panel-body">
+
+             	<!-- ジャンル検索機能 -->
+             	<%= link_to genre.name, search_products_path(genre_name: "#{genre.name}"), method: :post %>
+
+			   </h5>
+		  <% end %>
+
+	    </li>
+   </ul>
+</div>
+
+
+
+
+
